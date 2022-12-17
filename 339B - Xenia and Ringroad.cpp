@@ -1,27 +1,35 @@
-#include <cstdio>
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
-
-int main()
-{
-    int n, m;
-    scanf("%d%d", &n, &m);
-
-    int loc = 1;
-    long long int ans = 0;
-    for(int i=0; i<m; i++)
-    {
-        int now;
-        scanf("%d", &now);
-
-        if(now >= loc)
-            ans += now - loc;
-        else
-            ans += n - (loc - now);
-        loc = now;
-    }
-
-    cout << ans << endl;
-
-    return 0;
-}
+ 
+  int main()
+  {
+      long long int  n,m,i,j;
+      long long int x=1, cn=0;
+      
+      cin>>n;
+      cin>>m;
+ 
+      int a[m];
+      for( i=0; i<m; i++) cin>>a[i];
+ 
+      for ( i=0; i<m; i++)
+ 
+      {
+          if( a[i]>x)
+          {
+              cn+=a[i]-x;
+              
+              x=a[i];
+          }
+          
+          if( a[i]<x)
+          {
+              cn+=n-x+a[i];
+              
+              x=a[i];
+          }
+      }
+      cout<<cn<<endl;
+        
+        return 0;
+  }
